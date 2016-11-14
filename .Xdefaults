@@ -18,10 +18,10 @@ URxvt.color8  : #555555
 URxvt.color1  : #AA0000
 URxvt.color9  : #FF5555
 ! green
-!URxvt.color2  : #00AA00
+/* URxvt.color2  : #00FF00 */
 URxvt.color2  : #00CD00
-!URxvt.color10 : #55FF55
-URxvt.color10 : #00FF00
+URxvt.color10 : #55FF55
+/* URxvt.color10 : #00FF00 */
 ! yellow
 !URxvt.color3  : #AA5500
 URxvt.color3  : #CDCD00
@@ -31,15 +31,20 @@ URxvt.color11 : #FFFF00
 URxvt.color4  : #0000AA
 URxvt.color12 : #5555FF
 ! magenta
-URxvt.color5  : #AA00AA
+/* URxvt.color5  : #AA00AA */
+URxvt.color5  : #FF00FF
 URxvt.color13 : #FF55FF
+/* URxvt.color13 : #FF00FF */
+
+
 ! cyan
 !URxvt.color6  : #00AAAA
 URxvt.color6  : #00CDCD
 !URxvt.color14 : #55FFFF
 URxvt.color14 : #00FFFF
 ! white
-URxvt.color7  : #AAAAAA
+/* URxvt.color7  : #AAAAAA */
+URxvt.color7  : #E5E5E5
 URxvt.color15 : #FFFFFF
 
 !#define S_base03        #002b36
@@ -143,22 +148,47 @@ URxvt*loginShell:  true
 
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for characters
-!URxvt*font:                             -xos4-terminess powerline-medium-*-*-*-18-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize=18
+/* URxvt.font:                             -xos4-terminess powerline-medium-*-*-*-18-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize=18 */
 !URxvt*boldFont:                         -xos4-terminus-bold-*-*-*-18-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize=18
 !URxvt*italicFont:                       xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=18
 !URxvt*boldItalicFont:                   xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=18
 !URxvt*letterSpace: -1
 
-!URxvt*font: xft:Terminus,xft:Terminess Powerline:size=13:style=medium:antialias=true
-!URxvt*font: xft:Terminess Powerline:size=13
+/* URxvt*font: xft:Terminus,xft:Terminess Powerline:size=18:style=medium:antialias=true */
+/* URxvt.font: xft:Terminess Powerline:size=13 */
 !this works, renders ok power fonts without bugs
-!URxvt*font: xft:Terminess\ Powerline:style=medium:pixelsize=14
-URxvt*font: xft:Terminess\ Powerline:style=medium:pixelsize=18
-!URxvt*font: -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12
-!URxvt*boldFont: -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12
-URxvt*boldFont: -xos4-terminus-bold-*-*-*-18-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12
-URxvt*italicFont: xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
-URxvt*boldItalicFont: xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12
+
+/* URxvt*font: xft:Terminess\ Powerline:style=medium:pixelsize=8;antialias:True */
+/* URvt.font: xft:Terminess Powerline:size=16:hinting=True;antialias:True */
+/* URxvt.boldFont: xft:Terminess Powerline:size=16:bold;hinting=True;antialias:True */
+
+!! Hack
+/* URxvt.font:             xft:Hack:size=12:bold;hinting=False;antialias:True,xft:PowerlineSymbols,xft:Font Awesome:size=10,xft:WenQuanYi Bitmap Song-12:medium;antialias=False,xft:WenQuanYi Zen Hei-12:medium;antialias=True,xft:HanaMinA-12:medium;antialias:True,xft:HanaMinB-12:medium;antialias:True,xft:HanaMinPlus-12:medium;antialias:True */
+/* URxvt.font:             xft:Hack:antialias=true:pixelsize=16;hinting=true */
+
+
+!! This works nice for hack and it looks same as gvim
+/* URxvt.font:             xft:Hack:autohint=true:antialias=true:pixelsize=15 */
+/* URxvt.boldFont:         xft:Hack:style=bold:autohint=true:antialias=true:pixelsize=15 */
+
+/* URxvt.boldFont:         xft:Hack:style=bold:antialias=true */
+/* URxvt.boldFont:             xft:Hack:size=13:bold;hinting=True;antialias:True,xft:Font Awesome:size=10,xft:WenQuanYi Bitmap Song-12:bold;antialias=False,xft:WenQuanYi Zen Hei-12:bold;antialias=True,xft:HanaMinA-12:bold;antialias:True,xft:HanaMinB-12:bold;antialias:True,xft:HanaMinPlus-12:bold;antialias:True */
+/* URxvt.letterSpace: -1 */
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+!
+
+/* URxvt*font: xft:Terminess\ Powerline:style=medium:pixelsize=18 */
+
+/* URxvt*font: -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12 */
+/* URxvt.boldFont: -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12 */
+
+
+URxvt.font: xft:Terminess Powerline:hinting=true;antialias=true:size=13
+URxvt.boldFont: -xos4-terminus-bold-*-*-*-18-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:18
+
+URxvt.italicFont: xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=15
+URxvt.boldItalicFont: xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=15
 
 
 ! control +v/c for copy paste - https://bbs.archlinux.org/viewtopic.php?id=121797

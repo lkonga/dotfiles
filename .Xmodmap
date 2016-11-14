@@ -1,1 +1,11 @@
 keycode  41 = f F f F slash Tslash
+! clear lock
+! clear control
+! add control = Caps_Lock Control_L Control_R
+!keycode 66 = Control_L Caps_Lock NoSymbol NoSymbol
+! disable Left Control
+clear control
+clear Lock
+keycode 66 = Control_L
+add Control = Control_L
+! keycode 37 = 

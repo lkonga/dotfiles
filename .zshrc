@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/g/.oh-my-zsh
 # For sakura
-#export TERM="xterm-256color"
+# export TERM="xterm-256color"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -100,3 +100,10 @@ source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 export NVM_DIR="/home/g/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Activates vi-mode
+# bindkey -v
+# bindkey -M viins ‘jj’ vi-cmd-mode
+# bindkey ‘^R’ history-incremental-search-backward
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
