@@ -101,5 +101,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # . /usr/share/powerline/bindings/zsh/powerline.zsh
+alias mpvf="mpv --ytdl-format 22 "
 source /usr/share/autojump/autojump.zsh
 export PATH=/home/conga/bin:/home/conga/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/conga/.composer/vendor/bin:/home/conga/.config/composer/vendor/bin
