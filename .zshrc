@@ -106,3 +106,6 @@ source /usr/share/autojump/autojump.zsh
 export PATH=/home/conga/bin:/home/conga/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/conga/.composer/vendor/bin:/home/conga/.config/composer/vendor/bin
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.6
+# fixes issue with Ack plugin from Vim 
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
