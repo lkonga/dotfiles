@@ -114,5 +114,5 @@ alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset 
 
 # edit command line in vim
 export VISUAL=vim
-autoload edit-command-line; zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+# autoload edit-command-line; zle -N edit-command-line
+# bindkey -M vicmd v edit-command-line
