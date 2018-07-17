@@ -109,3 +109,10 @@ export GDK_DPI_SCALE=0.6
 # fixes issue with Ack plugin from Vim 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+# homestead
+alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
+
+# edit command line in vim
+export VISUAL=vim
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
