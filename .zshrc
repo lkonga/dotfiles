@@ -66,7 +66,9 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+# autojump
+git
+# safe-paste
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,3 +118,16 @@ alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset 
 export VISUAL=vim
 # autoload edit-command-line; zle -N edit-command-line
 # bindkey -M vicmd v edit-command-line
+
+_ncmpcpp() {
+	if ! pidof "$(type -p mpd)" >/dev/null; then
+		mpd
+		# if type -p mpdscribble >/dev/null; then
+		# 	killall mpdscribble >&/dev/null
+		# 	mpdscribble
+		# fi
+		$(type -p ncmpcpp) "$@"
+	else
+		$(type -p ncmpcpp) "$@"
+	fi
+}
