@@ -70,9 +70,9 @@ URxvt.internalBorder:
 URxvt.loginShell:  true
 
 !!-- Xft settings -- !
-/* Xft.dpi:        192 */
+Xft.dpi:        192
 /* Xft.dpi:        267 */
-Xft.dpi:        160
+/* Xft.dpi:        160 */
 /* Xft.dpi:        96 */
 /* Xft.dpi:        110 */
 Xft.antialias:  true
