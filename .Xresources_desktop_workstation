@@ -30,8 +30,8 @@ URxvt.depth: 32
 
 /* ! special */
 URxvt.foreground:   #d1d1d1
-URxvt.background:   #221e2d
-/* URxvt.background:   black */
+/* URxvt.background:   #221e2d */
+URxvt.background:   black
 URxvt.cursorColor:  #d1d1d1
 /* URxvt.cursorColor:  green */
 ! black

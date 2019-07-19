@@ -120,7 +120,7 @@ export VISUAL=vim
 # bindkey -M vicmd v edit-command-line
 
 # alias for editing awesome config and checking syntax
-alias awconf='vim ~/.config/awesome/rc.lua && awesome -k ~/.config/awesome/rc.lua'
+alias awconf='vim ~/.config/awesome/rc.lua'
 
 _ncmpcpp() {
 	if ! pidof "$(type -p mpd)" >/dev/null; then
