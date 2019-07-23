@@ -1,0 +1,57 @@
+let homedirectory = '/home/netclockin'
+let configpath = '~/.cvimrc'
+set localconfig
+let vimcommand = 'urxvtc -e vim'
+let hintcharacters = 'asdfgqwertxcvb'
+let zoomfactor = 0.05
+let scrollduration = 250
+let searchlimit = 25
+let completionengines = ['google', 'wikipedia', 'imdb', 'amazon', 'duckduckgo']
+
+set noautofocus
+set cncpcompletion
+set nohud
+set nodimhintcharacters
+
+" map a createActiveTabbedHint
+unmap a
+map $ lastTab
+map 0 firstTab
+map g0 scrollToLeft
+map g$ scrollToRight
+map <Space> l
+map <S-Space> h
+map xx closeTab
+map qq xx
+map cd :du<CR>
+map gs fullImageHint
+" map <C-e> z<Enter>
+" map <C-d> :file ~/
+map m* setMark
+" map <C-s> openLastHint
+map <C-g> :set smoothscroll!<CR>
+map ga :settings<CR>
+map <C-h> clearSearchHighlight
+map <BS> <Nop>
+
+imap <C-y> selectAll
+" imap <C-a> beginningOfLine
+imap <C-o> editWithVim
+
+site '*://*.netflix.com/watch*' {
+  unmap <Space> f
+}
+
+getIP() -> {{
+httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
+            function(res) { Status.setMessage('IP: ' + res.ip); });
+}}
+map ci :call getIP<CR>
+
+let blacklists = ["https://mail.google.com/*", "*://mail.google.com/*", "@https://mail.google.com/mail/*", "https://tweetdeck.twitter.com"]
+
+-> {{
+  Array.from(document.querySelectorAll('*[accesskey]')).forEach(e => {
+    e.removeAttribute('accesskey');
+  });
+}}

@@ -83,7 +83,8 @@ if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
     # export EDITOR='mvim'
-    export EDITOR='gvim'
+    # export EDITOR='gvim'
+    export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -116,3 +117,4 @@ alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset 
 export VISUAL=vim
 # autoload edit-command-line; zle -N edit-command-line
 # bindkey -M vicmd v edit-command-line
+export PATH=~/.npm-global/bin:$PATH
