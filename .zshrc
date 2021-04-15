@@ -68,7 +68,7 @@ ZSH_THEME="agnoster"
 plugins=(
 # autojump
 git
-# safe-paste
+safe-paste
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -134,3 +134,5 @@ _ncmpcpp() {
 		$(type -p ncmpcpp) "$@"
 	fi
 }
+
+export RUBYOPT='-W:no-deprecated -W:no-experimental'
