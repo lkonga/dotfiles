@@ -259,3 +259,8 @@ clear control
 add control = Caps_Lock Control_L Control_R
 !keycode 66 = Control_L Caps_Lock NoSymbol NoSymbol
 keycode 66 = Control_L NoSymbol Caps_Lock Caps_Lock
+
+! clear BackSpace
+! [Xmodmap - Disable Shift Modifier on Keyboard Key / Applications & Desktop Environments / Arch Linux Forums](https://bbs.archlinux.org/viewtopic.php?id=88210) [[Obsidian-Highlights]]
+! keycode 51 = BackSpace
+! keycode 22 = backslash bar

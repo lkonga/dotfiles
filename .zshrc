@@ -104,6 +104,8 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # . /usr/share/powerline/bindings/zsh/powerline.zsh
 alias mpvf="mpv --ytdl-format 22 "
+alias todoist='flatpak run com.todoist.Todoist'
+alias obsidian='flatpak run md.obsidian.Obsidian'
 source /usr/share/autojump/autojump.zsh
 export PATH=/home/conga/bin:/home/conga/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/conga/.composer/vendor/bin:/home/conga/.config/composer/vendor/bin
 export GDK_SCALE=2
@@ -113,7 +115,8 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 # homestead
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
-
+# fixes error of LD_PRELOAD when running certain applications such as bitwarden
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
 # edit command line in vim
 export VISUAL=vim
 # autoload edit-command-line; zle -N edit-command-line
@@ -121,6 +124,18 @@ export VISUAL=vim
 
 # alias for editing awesome config and checking syntax
 alias awconf='vim ~/.config/awesome/rc.lua'
+
+# alias okular='flatpak run org.kde.okular'
+
+
+# alias for searching entry in bitwarden
+bws() {
+bw list items --search $1 | jq
+}
+
+bwsp() {
+bws $1 --sort-keys | sed -n 's/.*\"password\": \"\([^"]\+\)".*/\1/p'
+}
 
 _ncmpcpp() {
 	if ! pidof "$(type -p mpd)" >/dev/null; then
@@ -136,3 +151,32 @@ _ncmpcpp() {
 }
 
 export RUBYOPT='-W:no-deprecated -W:no-experimental'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+# if the init script doesn't exist
+if ! zgen saved; then
+    echo "Creating a zgen save"
+
+    zgen oh-my-zsh
+
+    # specify plugins here
+	zgen load fdw/ranger_autojump
+
+  # generate the init script from plugins above
+  zgen save
+fi
+
+
+
+
+# disables annoying Control + S (stop flow)
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+stty -ixon
+
+# Go path
+export PATH=$PATH:/usr/local/go/bin

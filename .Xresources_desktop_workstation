@@ -112,9 +112,9 @@ URxvt.lineSpace:0
 /* URxvt.font: xft:Terminus (TTF):pixelsize=32:medium:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:regular:size=14 */
 
 /* URxvt.font: -xos4-terminus-*-*-*-32-*-*-*-*-*-iso8859-15,xft:Terminess Powerline:pixelsize=28:medium:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:regular:pixelsize=28 */
-URxvt.font: xft:Terminess Powerline:size=14:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:regular:pixelsize=28
+URxvt.font: xft:Terminess Powerline:size=12:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:regular:pixelsize=28
 /* URxvt.boldFont: -xos4-terminus-bold-*-*-*-28-*-*-*-*-*-iso8859-15,xft:Terminess Powerline:pixelsize=28:bold:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:bold:pixelsize=28 */
-URxvt.boldFont: xft:Terminess Powerline:size=14:bold:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:bold:pixelsize=28
+URxvt.boldFont: xft:Terminess Powerline:size=12:bold:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:bold:pixelsize=28
 /* URxvt.italicFont: xft:xos4 Terminess Powerline:pixelsize=28:italic:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:italic:pixelsize=28 */
 /* URxvt.boldItalicFont: xft:xos4 Terminess Powerline:pixelsize=28:italic:bold:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:bold:italic:pixelsize=28 */
 URxvt.italicFont: xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=28
