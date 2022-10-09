@@ -1,0 +1,135 @@
+"" Source your .vimrc
+"source ~/.vimrc
+"" Common settings -------------------------
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+" Do incremental searching.
+set incsearch
+set hlsearch
+set number relativenumber
+set visualbell
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+nnoremap <Leader>e :e ~/.ideavimrc<CR>
+nnoremap <Leader>r :action IdeaVim.ReloadVimRc.reload<CR>
+
+" Case insensitive searching unless /C or capitilization is used in search
+set ignorecase
+set smartcase
+
+" Creation of global mark will trigger creation of IDE's bookmark and vice versa.
+" Note - you must use global marks like `A` to access IDE's bookmark.
+set ideamarks
+set showmode
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=3
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+inoremap jj <Esc>
+set timeoutlen=5000
+" ys, cs, ds,  S
+set surround
+set commentary
+"set easymotion
+set matchit
+"set sneak
+set which-key
+
+" Demo video which describes clearly how to use replacewithregister plugin
+" [using replacewithregister.vim - YouTube](https://www.youtube.com/watch?v=P8-a5vpvVQ8)
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'machakann/vim-highlightedyank'
+Plug 'easymotion/vim-easymotion'
+map <leader>F <Plug>(easymotion-s)
+map <leader>f <Plug>(easymotion-f)
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Nerd Tree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'preservim/nerdtree'
+let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=0
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let g:NERDTreeWinSize=35
+map <c-t>   :NERDTree<CR>
+map <leader>nn :NERDTreeToggle<CR>
+map <leader>nb :NERDTreeFromBookmark<Space>
+map <leader>nf :NERDTreeFind<CR>
+
+" cx{motion} to select, again to exchange
+Plug 'tommcdo/vim-exchange'
+Plug 'michaeljsmith/vim-indent-object'
+" argument text objects: aa, ia
+Plug 'vim-scripts/argtextobj.vim'
+let g:argtextobj_pairs="[:],(:),<:>"
+
+" Terminal
+nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
+
+" Recent Files list
+"nnoremap <leader>f :action RecentFiles<CR>
+
+" Window Navigation
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <Leader>en :action EditSourceInNewWindow<CR>
+nnoremap <Leader>n :action NextWindow<CR>
+nnoremap <Leader>q :action CloseContent<CR>
+nnoremap <Leader>qa :action CloseAllEditors<CR>
+
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+
+nnoremap zc :action CollapseRegion<CR>
+nnoremap zo :action ExpandRegion<CR>
+nnoremap <leader>zc :action CollapseAllRegions<CR>
+nnoremap <leader>zo :action ExpandAllRegions<CR>
+
+" Searching and code navigation
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+
+" Toggle Distraction Mode
+nnoremap <leader>zz :action ToggleDistractionFreeMode<CR>
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+" Wrap to column plugin "
+nmap gq :action com.andrewbrookins.idea.wrap.WrapAction<CR>
+
+" https://ikenox.info/blog/getting-started-ideavim/
+noremap ; :
+nnoremap == :action ReformatCode<CR>
+vnoremap == :action ReformatCode<CR>
+
