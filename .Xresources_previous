@@ -69,14 +69,14 @@ URxvt.loginShell:  true
 !!-- Xft settings -- !
 /* Xft.dpi:        192 */
 /* Xft.dpi:        267 */
-Xft.dpi:        156
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintfull
+/* Xft.dpi:        156 */
+/* Xft.antialias:  true */
+/* Xft.rgba:       rgb */
+/* Xft.hinting:    true */
+/* Xft.hintstyle:  hintfull */
 /* Xft.hintstyle:  hintslight */
-Xft.lcdfilter:  lcddefault
-Xft.autohint:   false
+/* Xft.lcdfilter:  lcddefault */
+/* Xft.autohint:   false */
 
 ! fonts testings
 URxvt.letterSpace: -1
@@ -86,13 +86,13 @@ URxvt.lineSpace: 0
 ! From askapache - suitable for laptops monitors or when smaller monitor real estate
 !! Terminus Powerline (Terminess Powerline)
 !! See: https://github.com/Lokaltog/powerline-fonts/tree/master/Terminus
-URxvt.font: xft:Terminess Powerline:size=14:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:regular:size=14
-URxvt.boldFont: xft:Terminess Powerline:size=14:bold:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:bold:size=14
-URxvt.italicFont: xft:Terminess Powerline:size=14:italic:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:italic:size=14
-URxvt.boldItalicFont: xft:Terminess Powerline:size=14:italic:bold:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:bold:italic::size=14
+URxvt.font: xft:Terminess Powerline:pixelsize=14:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:regular:size=14
+URxvt.boldFont: xft:Terminess Powerline:pixelsize=11:bold:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:bold:size=14
+URxvt.italicFont: xft:Terminess Powerline:pixelsize=11:italic:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:italic:size=14
+URxvt.boldItalicFont: xft:Terminess Powerline:pixelsize=11:italic:bold:hinting=True:antialias=True,xft:SauceCodePro Nerd Font:bold:italic::size=14
 
 ! This work okay too
-/* URxvt.font: xft:Terminess Powerline:hinting=true;antialias=true:size=13 */
+/* URxvt.font: xft:Terminess Powerline:hinting=true;antialias=true:pixelsize=17 */
 /* URxvt.boldFont: -xos4-terminus-bold-*-*-*-18-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:17 */
 /* URxvt.italicFont: xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=15 */
 /* URxvt.boldItalicFont: xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=15 */
