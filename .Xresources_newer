@@ -1,0 +1,392 @@
+! ~/.Xresources                                                  vim:noet:tw=80:
+
+! Notes: xrdb                                                               {{{1
+!
+! See <url:man:xrdb.1> and `info cpp`
+!
+! Useful pre-processor symbols:
+!       HOST DISPLAY_NUM NUM_SCREENS SCREEN_NUM HEIGHT WIDTH X_RESOLUTION Y_RESOLUTION
+!       (see "xrdb -symbols" for full list)
+!
+! Custom user unit for use with systemd:
+!       <url:file:~/.config/systemd/user/xrdb.service>
+!
+! Choosing properties to manipulate:
+!       xrdb -all       Operate on RESOURCE_MANAGER and SCREEN_RESOURCES properties
+!       xrdb -global    Operate on the RESOURCE_MANAGER property
+!       xrdb -screens   Operate on the SCREEN_RESOURCES property
+!
+! Modes:
+!       xrdb -load      Replace all properties (default)
+!       xrdb -override  Add to contents
+!       xrdb -merge     Merge (and sort) with current contents
+!       xrdb -remove    Remove specified properties
+!
+! Debugging:
+!       xrdb -n         Show, but do not perform changes
+!       xrdb -query     Print current properties
+!       xrdb -symbols   Dump cpp symbols
+
+! Solarized color definitions                                               {{{1
+
+!!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
+!!--------- ------- ---- -------  ----------- ---------- ----------- -----------
+!!base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
+!!base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
+!!base01    #586e75 10/7 brgreen  240 #585858 45 -07 -07  88 110 117 194  25  46
+!!base00    #657b83 11/7 bryellow 241 #626262 50 -07 -07 101 123 131 195  23  51
+!!base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
+!!base1     #93a1a1 14/4 brcyan   245 #8a8a8a 65 -05 -02 147 161 161 180   9  63
+!!base2     #eee8d5  7/7 white    254 #e4e4e4 92 -00  10 238 232 213  44  11  93
+!!base3     #fdf6e3 15/7 brwhite  230 #ffffd7 97  00  10 253 246 227  44  10  99
+!!yellow    #b58900  3/3 yellow   136 #af8700 60  10  65 181 137   0  45 100  71
+!!orange    #cb4b16  9/3 brred    166 #d75f00 50  50  55 203  75  22  18  89  80
+!!red       #dc322f  1/1 red      160 #d70000 50  65  45 220  50  47   1  79  86
+!!magenta   #d33682  5/5 magenta  125 #af005f 50  65 -05 211  54 130 331  74  83
+!!violet    #6c71c4 13/5 brmagenta 61 #5f5faf 50  15 -45 108 113 196 237  45  77
+!!blue      #268bd2  4/4 blue      33 #0087ff 55 -10 -45  38 139 210 205  82  82
+!!cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
+!!green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
+
+!#define S_base03        #000000       /* Black */
+!#define S_base02        #073642       /* Bright Black */
+!#define S_base01        #00aa00       /* Green */
+!#define S_base00        #00ff00       /* Bright Green */
+!#define S_base0         #008888       /* Cyan */
+!#define S_base1         #00ffff       /* Bright Cyan */
+!#define S_base2         #aaaaaa       /* White */
+!#define S_base3         #ffffff       /* Bright White */
+!#define S_yellow        #aaff00       /* Bright Green variant */
+!#define S_orange        #ff8800       /* Orange, not very used in most scenarios */
+!#define S_red           #ff0000       /* Red */
+!#define S_magenta       #ff00ff       /* Magenta */
+!#define S_violet        #880088       /* Dark Magenta */
+!#define S_blue          #0000ff       /* Blue */
+!#define S_cyan          #00ffff       /* Bright Cyan */
+!#define S_green         #00ff00       /* Bright Green */
+!
+! includes dracula theme
+#include "/home/lkonga/.Xresources.d/dracula"
+! Fonts                                                                     {{{1
+!
+! <url:man:xlsfonts>
+! <url:man:fc-lists(1)>
+!
+! XXX: 12px terminus does not exist in bold
+!
+! URxvt font configuration notes:
+!
+! By default, urxvt synthesizes different styles from the main font.
+! For smaller sizes, all faces are not available, so all is explicit to make changing between font sizes possible.
+!  * Test fonts with
+!    $ printf '\e]710;%s\007' "xft:Terminess Powerline:pixelsize=12"
+!    $ terminal-font-test
+!  * Use `fc-list "Font Name"` to find exact matches for a font.
+!    Remember to `fc-list -vf` and start a new terminal when testing just
+!    installed fonts.
+!  * mixed-width fonts, for example noto by google, are not handled
+!  * font set codes
+!       710 = 50 = normal fontset
+!       711 = bold fontset
+!       712 = italic fontset
+!       713 = bold italic fontset
+!       704 = colour of italic (and bold italic) characters
+!
+!  * The community/terminus-font provided font is pretty bad. Terminess
+!    Powerline works much better via Xft.
+!  * "Terminess Powerline" available in px size: 12, 14, 16, 18, 20, 22, 24, 28, 32
+!  * "WenQuanYi Micro Hei" makes sense from about 22px upwards.
+!    XXX: in 12px, WQI symbols cut off by one px at bottom
+
+!#define XFT_TERMINESS      xft:xos4 Terminess Powerline
+#define XFT_TERMINESS      xft:Terminess Powerline
+#define XFT_NERD_TERMINESS xft:TerminessTTF Nerd Font Mono
+#define XLS_TERMINESS -xos4-terminesspowerline-medium-*
+#define XFT_DEF_1 XFT_TERMINESS
+#define XFT_DEF_2 XFT_NERD_TERMINESS
+! urxvt understands codeset
+#define XFT_SUBST1         [codeset=JISX0208]xft:WenQuanYi WenQuanYi Bitmap Song
+#define XFT_SUBST2         [codeset=JISX0208]xft:WenQuanYi Micro Hei
+#define XFT_DEF_1_SIZE(px) XFT_DEF_1:pixelsize=px,XFT_SUBST1
+#define XFT_DEF_2_SIZE(px) XFT_DEF_2:pixelsize=px,XFT_SUBST2
+
+#define U_SET_FONT(ts,font) \033]ts;font\007
+#define U_FONTS(sz,fn2) U_SET_FONT(50, fn2:pixelsize=sz)U_SET_FONT(711, fn2:style=Bold)U_SET_FONT(712, fn2:style=Italic)U_SET_FONT(713, fn2:style=Bold Italic)
+
+Xmessage*font:              XLS_TERMINESS-32-*
+x11-ssh-askpass*font:       XLS_TERMINESS-32-*
+
+#if HEIGHT > 1080
+URxvt.font:                 XFT_DEF_2_SIZE(32)
+#elif HEIGHT > 768
+URxvt.font:                 XFT_DEF_2_SIZE(32)
+#else
+URxvt.font:                 XFT_DEF_2_SIZE(32)
+#endif
+URxvt.boldFont:             XFT_DEF_2:style=Bold
+URxvt.italicFont:           XFT_DEF_2:style=Italic
+URxvt.boldItalicFont:       XFT_DEF_2:style=Bold Italic
+
+!! Colors (solarized dark)                                                   {{{1
+!
+!*background:            S_base03
+!*foreground:            S_base1
+!*cursorColor:           S_cyan
+!*cursorColor2:          #FFFFFF
+!*pointerColorBackground:S_base01
+!*pointerColor2:         S_base01
+!*pointerColorForeground:S_base1
+!*pointerColor:          S_base1
+!
+!!URxvt.background:            S_base03
+!!URxvt.foreground:            S_base1
+!!URxvt.cursorColor:           S_cyan
+!!URxvt.cursorColor2:          #FFFFFF
+!!URxvt.pointerColorBackground:S_base01
+!!URxvt.pointerColor2:         S_base01
+!!URxvt.pointerColorForeground:S_base1
+!!URxvt.pointerColor:          S_base1
+!
+!!! black dark/light
+!*color0:                S_base02
+!*color8:                S_base03
+!
+!!! red dark/light
+!*color1:                S_red
+!*color9:                S_orange
+!
+!!! green dark/light
+!*color2:                S_green
+!*color10:               S_base01
+!
+!!! yellow dark/light
+!*color3:                S_yellow
+!*color11:               S_base00
+!
+!!! blue dark/light
+!*color4:                S_blue
+!*color12:               S_base0
+!
+!!! magenta dark/light
+!*color5:                S_magenta
+!*color13:               S_violet
+!
+!!! cyan dark/light
+!*color6:                S_cyan
+!*color14:               S_base1
+!
+!!! white dark/light
+!*color7:                S_base2
+!*color15:               S_base3
+
+! nord color scheme for URxvt
+!URxvt.background: #2E3440
+!URxvt.foreground: #D8DEE9
+!URxvt.color0: #3B4252
+!URxvt.color1: #BF616A
+!URxvt.color2: #A3BE8C
+!URxvt.color3: #EBCB8B
+!URxvt.color4: #81A1C1
+!URxvt.color5: #B48EAD
+!URxvt.color6: #88C0D0
+!URxvt.color7: #E5E9F0
+!URxvt.color8: #4C566A
+!URxvt.color9: #BF616A
+!URxvt.color10: #A3BE8C
+!URxvt.color11: #EBCB8B
+!URxvt.color12: #81A1C1
+!URxvt.color13: #B48EAD
+!URxvt.color14: #8FBCBB
+!URxvt.color15: #ECEFF4
+
+! high contrast
+!URxvt.background:   S_base03
+!URxvt.foreground:   S_base0
+!URxvt.cursorColor:  S_base1
+!
+!URxvt.color0:       S_base02
+!URxvt.color8:       S_base03
+!URxvt.color1:       S_red
+!URxvt.color9:       S_orange
+!URxvt.color2:       S_green
+!URxvt.color10:      S_base01
+!URxvt.color3:       S_yellow
+!URxvt.color11:      S_base00
+!URxvt.color4:       S_blue
+!URxvt.color12:      S_base0
+!URxvt.color5:       S_magenta
+!URxvt.color13:      S_violet
+!URxvt.color6:       S_cyan
+!URxvt.color14:      S_base1
+!URxvt.color7:       S_base2
+!URxvt.color15:      S_base3
+
+! URxvt                                                                     {{{1
+!
+! <url:man:urxvt.1>
+! <url:man:urxvt.7>
+!
+! Perl extensions <url:man:urxvtperl.3>
+!
+! Paths searched for extensions:
+!       resource:perl-lib $URXVT_PERL_LIB ~/.urxvt/ext /usr/lib/urxvt/perl
+
+! OCT DEC ASCII printf other
+! 010 008 BS        \b    ^H
+! 011 009 TAB       \t
+! 012 010 NL        \n
+! 033 027 ESC       \e
+! 037 ___ ___             ^_
+! 040 032 SPACE
+! 177 127 DEL             ^?
+!
+
+URxvt*geometry:	240x84
+!URxvt.colorBD:
+!URxvt.colorIT:
+!URxvt.colorUL:
+URxvt.underlineColor:	#93a1a1
+!URxvt.jumpScroll:
+!URxvt.skipScroll:
+URxvt.letterSpace:	0
+
+URxvt.urgentOnBell:	true
+! action on [C-][S-]PrintScreen (default: lpr or so)
+URxvt.print-pipe:	cat >/dev/null
+URxvt.scrollBar:	false
+URxvt.scrollTtyOutput:	false
+URxvt.scrollWithBuffer:	true
+URxvt.scrollTtyKeypress:true
+URxvt.saveLines:	8192
+URxvt.skipBuiltinGlyphs:true
+URxvt.lineSpace:	-1
+! Meta (Alt) + keypress sets the 8th bit instead (default Esc prefix is used).
+!URxvt.meta8:		true
+! pastableTabs: store tabs as actual tab characters (true)
+URxvt.pastableTabs:	true
+URxvt.cursorBlink:	false
+URxvt.pointerBlank:	true
+!URxvt.pointerShape:
+URxvt.cutchars:		`&()*,;<=>?@[]^{|}\040\042\047\057\072\134│
+URxvt.tripleclickwords:	true
+URxvt.modifier:		alt
+
+! ISO 14755 5.1 press & hold Control + Shift, enter hex digits (separate many
+! with Space), release modifiers
+!
+! iSO 14755 5.2 (Keyboard symbols entry)
+URxvt.iso14755:		false
+URxvt.iso14755_52:	false
+
+! backspacekey ~ stty erase
+URxvt.backspacekey:	\010
+URxvt.deletekey:	\033[3~
+
+URxvt.perl-ext-common:	default,-confirm-paste,url-select,keyboard-select,selection-to-clipboard,searchable-scrollback,keysym-list,bell-command,resize-font
+!URxvt.perl-lib:
+!URxvt.perl-eval:
+
+URxvt.bell-command:	dunstify -a urxvt -i utilities-terminal -c Application,TerminalEmulator "URxvt" "Bell"
+
+URxvt.url-select.autocopy:true
+URxvt.url-select.button:1
+URxvt.url-select.launcher:xdg-open
+URxvt.url-select.underline:true
+
+! Key mappings. See <url:man:urxvt.1#keysym.sym:> for details.
+
+URxvt.keysym.Home:	\033[7~
+URxvt.keysym.End:	\033[8~
+URxvt.keysym.KP_Home:	\033[7~
+URxvt.keysym.KP_End:	\033[8~
+
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.keysym.M-g:	string: | grep\040
+URxvt.keysym.M-n:	string: >/dev/null 2>&1
+URxvt.keysym.M-h:	string: | head\040
+
+URxvt.keysym.M-C-a:	command:U_FONTS(12, XFT_DEF_1)
+!URxvt.keysym.M-C-b:	command:U_FONTS(14, XFT_DEF_1)
+URxvt.keysym.M-C-c:	command:U_FONTS(16, XFT_DEF_1)
+URxvt.keysym.M-C-d:	command:U_FONTS(18, XFT_DEF_1)
+URxvt.keysym.M-C-e:	command:U_FONTS(20, XFT_DEF_2)
+!URxvt.keysym.M-C-f:	command:U_FONTS(22, XFT_DEF_2)
+URxvt.keysym.M-C-g:	command:U_FONTS(24, XFT_DEF_2)
+URxvt.keysym.M-C-h:	command:U_FONTS(28, XFT_DEF_2)
+URxvt.keysym.M-C-i:	command:U_FONTS(32, XFT_DEF_2)
+
+! xterm-style modifyOtherKeys: \e[27;<modifiers>;<keycode>~
+!
+! For use in VIM, see <url:vimhelp:modifyOtherKeys>
+!
+! ";2" is Shift
+! ";3" is Alt
+! ";5" is Ctrl
+! ";9" is Meta
+!
+!	Shift	1
+!	Control	2
+!	Meta	4
+!	Super	8
+!	Hyper	16
+!	Alt	32
+!
+! XXX: incomplete; could be generated.
+URxvt.keysym.C-Tab:		\033[27;2;9~
+URxvt.keysym.S-C-Tab:		\033[27;3;9~
+URxvt.keysym.M-Tab:		\033[27;4;9~
+URxvt.keysym.I-Tab:		\033[27;4;9~
+URxvt.keysym.C-BackSpace:	\033[27;2;8~
+URxvt.keysym.C-Delete:		\033[27;2;127~
+URxvt*buffered:	true
+!URxvt*fading:	30
+URxvt*hold:	false
+URxvt*internalBorder:
+!URxvt*loginShell:	true
+URxvt*mapAlert:	true
+URxvt*mouseWheelScrollPage:	false
+URxvt*scrollBar_floating:	false
+URxvt*scrollBar_right:	false
+URxvt*scrollColor:	#777777
+URxvt*scrollstyle:	plain
+URxvt*secondaryScreen:	true
+URxvt*secondaryScroll:	true
+URxvt*skipScroll:	true
+URxvt*termName:	xterm-256color
+URxvt*utmpInhibit:	false
+URxvt*visualBell:	true
+URxvt.keysym.Shift-Control-C:	eval:selection_to_clipboard, escape
+URxvt.keysym.Shift-Control-V:	eval:paste_clipboard
+URxvt.selectToClipboard:	true
+
+
+! Xft settings
+!Xft.dpi: 144
+!Xft.autohint: 0
+!Xft.lcdfilter: lcddefault
+!Xft.hintstyle: hintfull
+!Xft.hinting: 1
+!Xft.antialias: 1
+!Xft.rgba: rgb
+
+!urxvt.dropdown_urxvt.transient-for:	root
+!Xft.dpi:	120
+!Xft.antialias:	1
+!Xft.hinting:	1
+!Xft.hintstyle:	hintslight
+!Xft.rgba:	none
+!Xcursor.size:	24
+!Xcursor.theme:	Pop
+!
+!Native transparency
+!URxvt*inheritPixmap: true
+!URxvt*transparent: true
+!! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
+!!URxvt*shading: 120
+!URxvt.background: rgba:1111/1111/1111/dddd
+
+
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
