@@ -1,1 +1,17 @@
+# Ignore API keys file
+.zsh_api_keys
+
+# Ignore history files
+.zsh_history*
+.bash_history
+
+# Ignore local configuration files that might contain sensitive information
+.env
+.env.local
+*.local
+
 awesome
+/.specstory
+.zshrc copy
+.aider.chat.history.md
+.aider*
