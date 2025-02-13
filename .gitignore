@@ -1,5 +1,7 @@
 # Ignore API keys file
 .zsh_api_keys
+.zsh_api_keys.backup
+.zshrc.backup
 
 # Ignore history files
 .zsh_history*
