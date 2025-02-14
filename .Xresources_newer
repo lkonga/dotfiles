@@ -241,15 +241,20 @@ URxvt.boldItalicFont:       XFT_DEF_2:style=Bold Italic
 ! 177 127 DEL             ^?
 !
 
-URxvt*geometry:	240x84
-!URxvt.colorBD:
-!URxvt.colorIT:
-!URxvt.colorUL:
+!URxvt*geometry:	240x20
+URxvt*terminalRows: 20
+URxvt*terminalCols: 240
+URxvt.letterSpace:	0
+URxvt.lineSpace:	0
+URxvt*internalBorder: 0
+URxvt*externalBorder: 0
+URxvt*secondaryScreen: false
+URxvt*secondaryScroll: false
+URxvt*skipScroll: false
+URxvt*buffered: false
 URxvt.underlineColor:	#93a1a1
 !URxvt.jumpScroll:
 !URxvt.skipScroll:
-URxvt.letterSpace:	0
-
 URxvt.urgentOnBell:	true
 ! action on [C-][S-]PrintScreen (default: lpr or so)
 URxvt.print-pipe:	cat >/dev/null
@@ -259,7 +264,6 @@ URxvt.scrollWithBuffer:	true
 URxvt.scrollTtyKeypress:true
 URxvt.saveLines:	8192
 URxvt.skipBuiltinGlyphs:true
-URxvt.lineSpace:	-1
 ! Meta (Alt) + keypress sets the 8th bit instead (default Esc prefix is used).
 !URxvt.meta8:		true
 ! pastableTabs: store tabs as actual tab characters (true)
@@ -282,7 +286,7 @@ URxvt.iso14755_52:	false
 URxvt.backspacekey:	\010
 URxvt.deletekey:	\033[3~
 
-URxvt.perl-ext-common:	default,-confirm-paste,url-select,keyboard-select,selection-to-clipboard,searchable-scrollback,keysym-list,bell-command,resize-font
+URxvt.perl-ext-common:	default,-confirm-paste,url-select,keyboard-select,selection-to-clipboard,searchable-scrollback,keysym-list,bell-command
 !URxvt.perl-lib:
 !URxvt.perl-eval:
 
@@ -338,20 +342,15 @@ URxvt.keysym.M-Tab:		\033[27;4;9~
 URxvt.keysym.I-Tab:		\033[27;4;9~
 URxvt.keysym.C-BackSpace:	\033[27;2;8~
 URxvt.keysym.C-Delete:		\033[27;2;127~
-URxvt*buffered:	true
+!URxvt*buffered:	true
 !URxvt*fading:	30
 URxvt*hold:	false
-URxvt*internalBorder:
-!URxvt*loginShell:	true
 URxvt*mapAlert:	true
 URxvt*mouseWheelScrollPage:	false
 URxvt*scrollBar_floating:	false
 URxvt*scrollBar_right:	false
 URxvt*scrollColor:	#777777
 URxvt*scrollstyle:	plain
-URxvt*secondaryScreen:	true
-URxvt*secondaryScroll:	true
-URxvt*skipScroll:	true
 URxvt*termName:	xterm-256color
 URxvt*utmpInhibit:	false
 URxvt*visualBell:	true

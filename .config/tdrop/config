@@ -1,0 +1,6 @@
+tdrop -ma -r -A -w 100% -h 25% \
+    --class=dropdown \
+    --name=dropdown \
+    -P 'wmctrl -i -r $wid -b add,above,sticky' \
+    urxvt -title dropdown -e tmux new-session -s dropdown \; set-option -g allow-rename off \; set-window-option -g automatic-rename off \
+    # -depth 32 -bg rgba:2E34/3B42/434C/dddd 

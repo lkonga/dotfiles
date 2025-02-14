@@ -334,3 +334,5 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 # eval "$(atuin init zsh)"
 # eval "$(atuin init zsh --disable-up-arrow)"
+
+alias cerebras33='aichat -m cerebras:llama3.3-70b'

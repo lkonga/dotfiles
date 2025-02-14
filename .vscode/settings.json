@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.tmux.conf.local": "properties",
+        ".tmux.conf.local": "properties"
+    }
+} 
