@@ -387,3 +387,9 @@ URxvt.selectToClipboard:	true
 
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-plus:      resize-font:bigger
+
+! Prevent title changes
+URxvt.title: dropdown
+URxvt*allowTitleOps: false
+URxvt*allowWindowOps: false
+URxvt.termName: xterm-256color

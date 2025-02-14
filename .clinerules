@@ -1,0 +1,10 @@
+Some core rules:
+
+- when modifying or adding existing code, do it in atomic ways and add or update tests in atomic ways as well
+- be surgical and precise when applying changes to the codebase
+- when adding new features, add documentation in the docs/features folder
+- when completing the feature task, move the documentation file to docs/features/done
+- when doing a refactor, add documentation in the docs/refactors folder
+- when completing a refactor task, move the documentation file to docs/refactors/done
+- when fixing a bug, add documentation in the docs/bugs folder
+- when completing a bug task, move the documentation file to docs/bugs/done
