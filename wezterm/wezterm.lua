@@ -19,6 +19,18 @@ local config = {
     -- Adjust line height for better readability
     line_height = 1.0,  -- Hack has good built-in spacing
     
+    -- Cursor configuration
+    cursor_blink_rate = 800,  -- Adjust blink speed (milliseconds)
+    cursor_blink_ease_in = "Constant",  -- No fade-in
+    cursor_blink_ease_out = "Constant", -- No fade-out
+    default_cursor_style = "BlinkingBlock",
+    -- Disable fading effects
+    text_background_opacity = 1.0,
+    inactive_pane_hsb = {
+        saturation = 1.0,
+        brightness = 1.0,
+    },
+    
     -- Tab bar
     use_fancy_tab_bar = true,
     hide_tab_bar_if_only_one_tab = true,

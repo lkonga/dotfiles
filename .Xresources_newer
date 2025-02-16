@@ -268,7 +268,8 @@ URxvt.skipBuiltinGlyphs:true
 !URxvt.meta8:		true
 ! pastableTabs: store tabs as actual tab characters (true)
 URxvt.pastableTabs:	true
-URxvt.cursorBlink:	false
+URxvt.cursorBlink:	true
+URxvt.cursorBlinkTime: 1600
 URxvt.pointerBlank:	true
 !URxvt.pointerShape:
 URxvt.cutchars:		`&()*,;<=>?@[]^{|}\040\042\047\057\072\134│
